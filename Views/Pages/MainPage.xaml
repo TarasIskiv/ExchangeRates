@@ -32,29 +32,23 @@
                    FontFamily="Palatino Linotype" FontWeight="Bold" FontStyle="Italic"/>
 
         <DockPanel Grid.Row="1" >
-            <Grid Width="756">
+            <Grid Width="715">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="63*" />
-                    <ColumnDefinition Width="106*" />
-                    <ColumnDefinition Width="84*" />
-                    <ColumnDefinition Width="107*" />
-                    <ColumnDefinition Width="85*" />
-                    <ColumnDefinition Width="106*" />
-                    <ColumnDefinition Width="91*" />
-                    <ColumnDefinition Width="114*" />
+
+                    <ColumnDefinition Width="105*" />
+                    <ColumnDefinition Width="113*" />
+                    <ColumnDefinition Width="113*" />
+                    <ColumnDefinition Width="113*" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition />
                     <RowDefinition />
                 </Grid.RowDefinitions>
-                <RadioButton Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Right" Height="14" Width="15"/>
-                <RadioButton Grid.Row="1" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Right" Height="14" Width="15"/>
-                <RadioButton Grid.Row="1" Grid.Column="4" VerticalAlignment="Top" HorizontalAlignment="Right" Height="14" Width="15"/>
-                <RadioButton Grid.Row="1" Grid.Column="6" VerticalAlignment="Top" HorizontalAlignment="Right" Height="14" Width="15"/>
+                
                 <Border Grid.Row="1"
-                        Grid.Column="1"
+                        Grid.Column="0"
                         Height="30"
-                        Margin="5, 0"
+                        Margin="15 0 15 0"
                         Background="White"
                         BorderBrush="Gray"
                         BorderThickness="1"
@@ -63,9 +57,9 @@
                 </Border>
 
                 <Border Grid.Row="1"
-                        Grid.Column="3"
+                        Grid.Column="1"
                         Height="30"
-                        Margin="5, 0"
+                        Margin="15 0 15 0"
                         Background="White"
                         BorderBrush="Gray"
                         BorderThickness="1"
@@ -74,9 +68,9 @@
                 </Border>
 
                 <Border Grid.Row="1"
-                        Grid.Column="5"
+                        Grid.Column="2"
                         Height="30"
-                        Margin="5, 0"
+                        Margin="15 0 15 0"
                         Background="White"
                         BorderBrush="Gray"
                         BorderThickness="1"
@@ -85,9 +79,9 @@
                 </Border>
 
                 <Border Grid.Row="1"
-                        Grid.Column="7"
+                        Grid.Column="3"
                         Height="30"
-                        Margin="5, 0"
+                        Margin="15 0 15 0"
                         Background="White"
                         BorderBrush="Gray"
                         BorderThickness="1"
@@ -96,9 +90,9 @@
                 </Border>
 
                 <Border Grid.Row="0"
-                        Grid.Column="1"
+                        Grid.Column="0"
                         Height="40"
-                        Margin="5, 0"
+                        Margin="15, 15 15 0"
                         Background="White"
                         BorderBrush="Gray"
                         BorderThickness="1"
@@ -107,9 +101,9 @@
                 </Border>
 
                 <Border Grid.Row="0"
-                        Grid.Column="3"
+                        Grid.Column="1"
                         Height="40"
-                        Margin="5, 0"
+                        Margin="15, 15 15 0"
                         Background="White"
                         BorderBrush="Gray"
                         BorderThickness="1"
@@ -118,9 +112,9 @@
                 </Border>
 
                 <Border Grid.Row="0"
-                        Grid.Column="5"
+                        Grid.Column="2"
                         Height="40"
-                        Margin="5, 0"
+                        Margin="15, 15 15 0"
                         Background="White"
                         BorderBrush="Gray"
                         BorderThickness="1"
@@ -129,16 +123,79 @@
                 </Border>
 
                 <Border Grid.Row="0"
-                        Grid.Column="7"
+                        Grid.Column="3"
                         Height="40"
-                        Margin="5, 0"
+                        Margin="15, 15 15 0"
                         Background="White"
                         BorderBrush="Gray"
                         BorderThickness="1"
                         VerticalAlignment="Bottom">
                     <TextBlock Margin="1" Text="{Binding Path=Rates[3]}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="19" FontWeight="Bold"/>
                 </Border>
+
+
             </Grid>
         </DockPanel>
+        <StackPanel Grid.Row="2">
+        <Border 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Margin="0 40 0 0"
+                Height="80"
+                Width="500"
+                Background="White"
+                BorderBrush="Gray"
+                BorderThickness="1">
+            <DockPanel Margin="5 10">
+                <Border  HorizontalAlignment="Left"
+                         Margin="10 10 5 10"
+                         Width="140"
+                         Background="White"
+                         BorderBrush="Gray"
+                         BorderThickness="1">
+                <TextBox Margin="1"
+                         Text="{Binding Path=ValueInUAH, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         FontSize="19"/>
+                </Border>
+                <Border  HorizontalAlignment="Center"
+                         Margin="15 10 5 10"
+                         Width="150"
+                         Background="White"
+                         BorderBrush="Gray"
+                         BorderThickness="1">
+                    <ComboBox Margin="5"
+                              ItemsSource="{Binding Path=Rates}"
+                              SelectedItem="{Binding Path=SelectedRate, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                              FontSize="15"/>
+                </Border>
+                <Border  HorizontalAlignment="Right"
+                         Margin="20 10 10 10"
+                         Width="130"
+                         Background="White"
+                         BorderBrush="Gray"
+                         BorderThickness="1">
+                    <TextBlock Margin="1"
+                         Text="{Binding Path=ConveteredValue, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         FontSize="19"/>
+                </Border>
+            </DockPanel>
+
+            
+            </Border>
+            <Button Height="40"
+                    Width="200"
+                    Margin="0 30 0 0"
+                    HorizontalAlignment="Center"
+                    Command="{Binding Path=ConvertButton}"
+                    Content="Convert"
+                    FontSize="19"
+                    BorderBrush="Black"
+                    BorderThickness="2"/>
+        </StackPanel>
+
     </Grid>
 </Page>
